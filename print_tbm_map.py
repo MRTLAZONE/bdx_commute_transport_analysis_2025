@@ -37,5 +37,5 @@ for shape_id, shape_data in df_shapes.groupby("shape_id"):
     ).add_to(m)
 
 # Sauvegarder et afficher la carte
-m.save("carte_reseau_TBM.html")
+m.save("results/carte_reseau_TBM.html")
 m

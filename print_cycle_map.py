@@ -99,5 +99,5 @@ m.get_root().add_child(legend)
 
 
 # Sauvegarder et afficher la carte
-m.save("carte_cyclable_bordeaux_coloree.html")
+m.save("results/carte_cyclable_bordeaux.html")
 m

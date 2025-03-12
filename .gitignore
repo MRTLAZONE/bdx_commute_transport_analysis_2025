@@ -178,3 +178,6 @@ data/
 
 # bordeaux directory
 bordeaux.gtfs/
+
+# results directory
+results/
