@@ -11,7 +11,7 @@ from branca.element import Template, MacroElement
 df = pd.read_csv("troncons_cyclables_bdx.csv", encoding="utf-8", sep=";")
 
 # Afficher les 5 premières lignes
-print(df.head())
+# print(df.head())
 
 # Convertir la colonne Geo Shape en objets géométriques utilisables
 def convert_to_linestring(geo_shape):
@@ -26,22 +26,24 @@ df["geometry"] = df["Geo Shape"].apply(convert_to_linestring)
 
 # Dictionnaire de couleurs pour chaque type d'aménagement cyclable
 color_mapping = {
-    "DBLE_SENS_PIST_CYCL": "blue",
-    "VOIE_VERTE": "green",
-    "AIRE_PIETONNE": "purple",
-    "TRAVERSEE": "orange",
-    "RACCORD": "gray",
-    "PISTES_CYCL": "red",
-    "ALLEES_DE_PARCS": "lightgreen",
-    "ZONE_30_DBLE_SENS": "pink",
-    "BANDES_CYCL": "brown",
-    "ZONE_30_SENS_UNIQUE": "yellow",
-    "DBLE_SENS_CYCL": "cyan",
-    "BANDES_CYCL_DBLE_SENS": "darkblue",
-    "COULOIRS_BUS": "black",
-    "ZONE_RENCONTRE": "gold",
-    "CHAUSS_CENTR_BAN": "darkred",
-    "VELORUE": "teal"
+    "PISTES_CYCL": "blue",  # Piste cyclable protégée
+    "DBLE_SENS_PIST_CYCL": "green",  # Double-sens en site propre
+    "VOIE_VERTE": "darkgreen",  # Voie verte, sans voitures
+    "ALLEES_DE_PARCS": "lightgreen",  # Allées piétonnes/cyclables dans des parcs
+
+    "BANDES_CYCL": "orange",  # Bande cyclable peinte sur la chaussée
+    "BANDES_CYCL_DBLE_SENS": "yellow",  # Bande double-sens
+    "ZONE_30_DBLE_SENS": "gold",  # Zone 30 avec double-sens cyclable
+    "ZONE_30_SENS_UNIQUE": "goldenrod",  # Zone 30 classique
+    "DBLE_SENS_CYCL": "darkorange",  # Double-sens cyclable sur route
+
+    "CHAUSS_CENTR_BAN": "red",  # Chaussée à voie centrale banalisée (partagée avec autos)
+    "TRAVERSEE": "darkred",  # Simple traversée cyclable
+    "RACCORD": "black",  # Raccord entre voies (souvent court et dangereux)
+    "COULOIRS_BUS": "gray",  # Partage avec bus (dangereux)
+    "ZONE_RENCONTRE": "purple",  # Zones partagées avec piétons et voitures
+    "AIRE_PIETONNE": "brown",  # Air piétonne où le vélo est toléré
+    "VELORUE": "cyan"  # Rue où le vélo est prioritaire mais pas séparé
 }
 
 
